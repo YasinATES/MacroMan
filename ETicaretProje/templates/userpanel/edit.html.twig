@@ -1,0 +1,15 @@
+{% extends 'userpanel/index.html.twig' %}
+
+{% block title %}Üye Paneli{% endblock %}
+
+{% block content %}
+<div class="content-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 main-wrap">
+                <div class="main-content">
+    {{ include('userpanel/_form.html.twig', {'button_label': 'Update'}) }}
+
+                </div>
+            </div>
+{% endblock %}

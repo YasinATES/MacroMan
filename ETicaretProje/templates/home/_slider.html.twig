@@ -1,0 +1,49 @@
+<div id="home-slider" data-autorun="yes" data-duration="6000" class="carousel slide fade dhslider dhslider-custom "
+     data-height="650">
+    <div class="dhslider-loader">
+        <div class="fade-loading">
+            <i></i><i></i><i></i><i></i>
+        </div>
+    </div>
+    <div class="carousel-inner dhslider-wrap">
+        <div class="item slider-item active">
+
+
+            <div class="slide-bg"
+                 style="background-image: url('{{ asset('uploads') }}/images/{{ image_setting[0].SliderImageOne }}');"></div>
+
+            <div class="slider-caption caption-align-left">
+                <div class="slider-caption-wrap">
+                    <span class="slider-top-caption-text">{{ image_setting[0].SliderKampanya1 }}</span>
+                    <h2 class="slider-heading-text">{{ image_setting[0].SliderKampanyaIki }}</h2>
+                    <div class="slider-caption-text">{{ image_setting[0].SliderKampanyaUc }}</div>
+                    <div class="slider-buttons">
+                        <a href="{{  path(image_setting[0].KampanyaLinkOne) }}" class="btn btn-lg btn-white-outline">Detaylar</a>
+                        <a href="{{  path(image_setting[0].KampanyaLinkOne) }}" class="btn btn-lg btn-white-outline">Satın Al</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item slider-item">
+
+            <div class="slide-bg"
+                 style="background-image: url('{{ asset('uploads') }}/images/{{ image_setting[0].SliderImageTwo }}');"></div>
+
+            <div class="slider-caption caption-align-right">
+                <div class="slider-caption-wrap">
+                    <span class="slider-top-caption-text">{{ image_setting[0].SliderKampanyaDort }}</span>
+                    <h2 class="slider-heading-text">{{ image_setting[0].SliderKampanyaBes }}</h2>
+                    <div class="slider-caption-text">{{ image_setting[0].SliderKampanyaAlti }}</div>
+                    <div class="slider-buttons">
+                        <a href="{{  path(image_setting[0].KampanyaLinkTwo) }}" class="btn btn-lg btn-white">Daha Fazlasını Gör</a>
+                        <a href="{{  path(image_setting[0].KampanyaLinkTwo) }}" class="btn btn-lg btn-white-outline">Şimdi Al</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ol class="carousel-indicators parallax-content">
+        <li data-target="#home-slider" data-slide-to="0" class="active"></li>
+        <li data-target="#home-slider" data-slide-to="1"></li>
+    </ol>
+</div>

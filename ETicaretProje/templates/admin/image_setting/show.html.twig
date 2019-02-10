@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ImageSetting{% endblock %}
+
+{% block body %}
+    <h1>ImageSetting</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ image_setting.id }}</td>
+            </tr>
+            <tr>
+                <th>SliderImageOne</th>
+                <td>{{ image_setting.SliderImageOne }}</td>
+            </tr>
+            <tr>
+                <th>SliderImageTwo</th>
+                <td>{{ image_setting.SliderImageTwo }}</td>
+            </tr>
+            <tr>
+                <th>AnasayfaImageOne</th>
+                <td>{{ image_setting.AnasayfaImageOne }}</td>
+            </tr>
+            <tr>
+                <th>AnasayfaImageTwo</th>
+                <td>{{ image_setting.AnasayfaImageTwo }}</td>
+            </tr>
+            <tr>
+                <th>AnasayfaImageThree</th>
+                <td>{{ image_setting.AnasayfaImageThree }}</td>
+            </tr>
+            <tr>
+                <th>AnasayfaImageFour</th>
+                <td>{{ image_setting.AnasayfaImageFour }}</td>
+            </tr>
+            <tr>
+                <th>AnasayfaImageFive</th>
+                <td>{{ image_setting.AnasayfaImageFive }}</td>
+            </tr>
+            <tr>
+                <th>AnasayfaImageSix</th>
+                <td>{{ image_setting.AnasayfaImageSix }}</td>
+            </tr>
+            <tr>
+                <th>SliderKampanya1</th>
+                <td>{{ image_setting.SliderKampanya1 }}</td>
+            </tr>
+            <tr>
+                <th>SliderKampanyaIki</th>
+                <td>{{ image_setting.SliderKampanyaIki }}</td>
+            </tr>
+            <tr>
+                <th>SliderKampanyaUc</th>
+                <td>{{ image_setting.SliderKampanyaUc }}</td>
+            </tr>
+            <tr>
+                <th>SliderKampanyaDort</th>
+                <td>{{ image_setting.SliderKampanyaDort }}</td>
+            </tr>
+            <tr>
+                <th>SliderKampanyaBes</th>
+                <td>{{ image_setting.SliderKampanyaBes }}</td>
+            </tr>
+            <tr>
+                <th>SliderKampanyaAlti</th>
+                <td>{{ image_setting.SliderKampanyaAlti }}</td>
+            </tr>
+            <tr>
+                <th>UrunlerImage</th>
+                <td>{{ image_setting.UrunlerImage }}</td>
+            </tr>
+            <tr>
+                <th>HakkimizdaImage</th>
+                <td>{{ image_setting.HakkimizdaImage }}</td>
+            </tr>
+            <tr>
+                <th>IletisimImage</th>
+                <td>{{ image_setting.IletisimImage }}</td>
+            </tr>
+            <tr>
+                <th>ReferansImage</th>
+                <td>{{ image_setting.ReferansImage }}</td>
+            </tr>
+            <tr>
+                <th>KampanyaLinkOne</th>
+                <td>{{ image_setting.KampanyaLinkOne }}</td>
+            </tr>
+            <tr>
+                <th>KampanyaLinkTwo</th>
+                <td>{{ image_setting.KampanyaLinkTwo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_image_setting_index') }}">back to list</a>
+
+    <a href="{{ path('admin_image_setting_edit', {'id': image_setting.id}) }}">edit</a>
+
+    {{ include('admin_image_setting/_delete_form.html.twig') }}
+{% endblock %}

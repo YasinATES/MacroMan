@@ -1,0 +1,50 @@
+<form method="post">
+    <div class="form-group ">
+        <label>Üst Kategori</label>
+        <select name="categories[parent_id]" class="form-control">
+            {% if activeCat is defined %}
+                <optgroup label="AKTİF KATEGORİ">
+                    <option value="{{ activeCat.id }}">{{ activeCat.title }}</option>
+                </optgroup>
+            {% endif %}
+            <optgroup label="SEÇİLEBİLECEK KATEGORİLER">
+                <option value="0">Ana Kategori</option>
+                {% for x in catlist %}
+                    <option value="{{ x.id }}">{{ x.title }}</option>
+                {% endfor %}
+            </optgroup>
+        </select>
+
+    </div>
+    <div class="form-group ">
+        <label>Title(Başlık)</label>
+        <input type="text" class="form-control" name="categories[title]" value="{{ category.title }}" placeholder="Title(Başlık)">
+    </div>
+    <div class="form-group">
+        <label>Description (Açıklama)</label>
+        <input type="text" class="form-control" name="categories[description]"  value="{{ category.description }}" placeholder="Description (Açıklama)">
+    </div>
+    <div class="form-group">
+        <label> Keywords (Anahtar Kelime)</label>
+        <input type="text" class="form-control" name="categories[keywords]" value="{{ category.keywords }}" placeholder="Keywords (Anahtar Kelime)">
+    </div>
+    <div class="form-group">
+        <label> Aktif Durum(Status)</label>
+        <select name="categories[status]" class="form-control">
+            <option>{{ category.status }}</option>
+            <option>True</option>
+            <option>False</option>
+        </select>
+    </div>
+
+    <div class="row col-md-12">
+        <div class="col-md-6 form-group">
+            <a href="{{ path('admin_categories_index') }}" class="btn btn-primary btn-block"><span
+                        class="glyphicon glyphicon-arrow-left"> </span> Listeye Geri Dön</a>
+        </div>
+        <div class="col-md-6 form-group">
+            <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-check"></span> Kaydet
+            </button>
+        </div>
+    </div>
+</form>

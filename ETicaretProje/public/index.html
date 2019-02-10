@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Dashboard | Klorofil - Free Bootstrap Dashboard Template</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="Admin/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Admin/assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Admin/assets/vendor/linearicons/style.css">
+    <link rel="stylesheet" href="Admin/assets/vendor/chartist/css/chartist-custom.css">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="Admin/assets/css/main.css">
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="Admin/assets/css/demo.css">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="Admin/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="Admin/assets/img/favicon.png">
+</head>
+
+<body>
+<!-- WRAPPER -->
+<div id="wrapper">
+    <!-- NAVBAR -->
+
+	
+	<form method="post">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email Adresi</label>
+            <input type="email" class="form-control" name="users[email]" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Şifre</label>
+            <input type="password" class="form-control" name="users[password]" placeholder="Şifre">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Ad Soyad</label>
+            <input type="text" class="form-control" name="users[name]" placeholder="Ad Soyad">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Telefon</label>
+            <input type="text" class="form-control" name="users[tel]" placeholder="Telefon">
+        </div>
+        <div class="form-group col-md-12">
+            <label for="exampleInputPassword1">Adres</label>
+            <input type="text" class="form-control" name="users[addres]" placeholder="Adres">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Tip</label>
+            <select name="users[type]" class="form-control">
+                <option>Admin</option>
+                <option>Uye</option>
+                <option>Muhasebeci</option>
+                <option>Kargocu</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Durum</label>
+            <select name="users[status]" class="form-control">
+                <option>True</option>
+                <option>False</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Şehir</label>
+            <input type="text" class="form-control" name="users[city]" placeholder="Şehir">
+        </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+	
+	<div class="clearfix"></div>
+<footer>
+    <div class="container-fluid">
+        <p class="copyright">&copy; 2017 <a href="https://www.themeineed.com" target="_blank">Theme I Need</a>. All Rights Reserved.</p>
+    </div>
+</footer>
+</div>
+</body>
+
+</html>

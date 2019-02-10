@@ -1,0 +1,52 @@
+{% extends 'userpanel/index.html.twig' %}
+
+{% block title %}Üye Paneli{% endblock %}
+
+{% block content %}
+<div class="content-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 main-wrap">
+                <div class="main-content">
+
+
+<div class="col-md-9">
+    <div class="row">
+    <h1>Profil</h1>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Mail</th>
+                <td>{{ app.user.email }}</td>
+            </tr>
+            <tr>
+                <th>Rol</th>
+                <td>{{ app.user.roles|join }}</td>
+            </tr>
+            <tr>
+                <th>Ad Soyad</th>
+                <td>{{ app.user.name }}</td>
+            </tr>
+            <tr>
+                <th>Adres</th>
+                <td>{{ app.user.addres }}</td>
+            </tr>
+            <tr>
+                <th>Şehir</th>
+                <td>{{ app.user.city }}</td>
+            </tr>
+            <tr>
+                <th>Telefon</th>
+                <td>{{ app.user.tel }}</td>
+            </tr>
+
+
+
+        </tbody>
+    </table>
+    </div>
+</div>
+
+                </div>
+            </div>
+{% endblock %}

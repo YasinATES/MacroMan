@@ -1,0 +1,83 @@
+<style>
+    ul#category-list, #category-list ul {
+        width: 100%; /* Main Menu width */
+        border: 1px solid #CCCCCC;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        z-index: 9;
+    }
+
+    #category-list li {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        background-color: #EEEEEE; /*fallback color*/
+        background-color: rgba(255, 255, 255, 0.8);
+        transition: background 0.5s;
+    }
+
+    #category-list li:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    #category-list a {
+        font: normal 16px "Helvetica Neue";
+        border-top: 1px solid #CCCCCC;
+        display: block;
+        color: #444444;
+        text-decoration: none;
+        line-height: 45.6px;
+        padding-left: 22px;
+        position: relative;
+    }
+
+    #category-list li:first-child a {
+        border-top: 0;
+    }
+
+    #category-list a.arrow::after {
+        content: '';
+        position: absolute;
+        display: inline;
+        top: 50%;
+        margin-top: -4px;
+        right: 8px;
+        border-width: 4px;
+        border-style: solid;
+        border-color: transparent transparent transparent black;
+        transition: border-color 0.5s;
+    }
+
+    #category-list li a.arrow:hover::after {
+        border-color: transparent transparent transparent red;
+    }
+
+    /*Sub level menu items
+    ---------------------------------------*/
+    #category-list li ul {
+        min-width: 50px; /* Sub level menu min width */
+        position: absolute;
+        display: none;
+        left: 100%;
+        top: 0;
+    }
+
+    #category-list li:hover > ul {
+        display: block;
+    }
+</style>
+
+<div class="col-md-3 sidebar-wrap">
+    <div class="main-sidebar">
+        <div class="widget shop widget_product_categories">
+            <h4 class="widget-title"><span>Kategoriler</span></h4>
+
+            <ul class="category-list">
+                <li class="dropdown side-dropdown">
+                    {% for cat in cats %}
+                        {{ cat|raw }}
+                    {% endfor %}
+                </li>
+            </ul>
+        </div>

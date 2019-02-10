@@ -1,0 +1,55 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block content %}
+    <h2>Üye Güncelle</h2>
+    <br>
+    <form method="post">
+        <div class="form-group col-md-6">
+            <label for="exampleInputEmail1">Email Adresi</label>
+            <input type="email" class="form-control" name="users[email]" value="{{ user.email }}" placeholder="Email">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="exampleInputPassword1">Şifre</label>
+            <input type="text" class="form-control" name="users[password]" value="{{ user.password }}"
+                   placeholder="Şifre">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="exampleInputPassword1">Ad Soyad</label>
+            <input type="text" class="form-control" name="users[name]" value="{{ user.name }}" placeholder="Ad Soyad">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="exampleInputPassword1">Telefon</label>
+            <input type="text" class="form-control" name="users[tel]" value="{{ user.tel }}" placeholder="Telefon">
+        </div>
+        <div class="form-group col-md-12">
+            <label for="exampleInputPassword1">Adres</label>
+            <input type="text" class="form-control" name="users[addres]" value="{{ user.addres }}" placeholder="Adres">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="exampleInputPassword1">Tip</label>
+            <select name="users[type]" class="form-control">
+                <option>{{ user.type }}</option>
+                <option>Admin</option>
+                <option>Uye</option>
+                <option>Muhasebeci</option>
+                <option>Kargocu</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="exampleInputPassword1">Durum</label>
+            <select name="users[status]" class="form-control">
+                <option>{{ user.status }}</option>
+                <option>True</option>
+                <option>False</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="exampleInputPassword1">Şehir</label>
+            <input type="text" class="form-control" name="users[city]" value="{{ user.city }}" placeholder="Şehir">
+        </div>
+        <div class=" col-md-6">
+            <br>
+            <button type="submit" class="btn btn-primary col-md-12">Güncelle</button>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,196 @@
+<!doctype html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <title>{{ data[0].title }}</title>
+    <link rel="shortcut icon" href='{{ asset('images') }}/favicon.png'>
+
+    <link rel='stylesheet' href='{{ asset('css') }}/swatches-and-photos.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{ asset('css') }}/font-awesome.min.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Montserrat%3A400%2C700&#038;' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{ asset('css') }}/elegant-icon.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='{{ asset('css') }}/style.css' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{ asset('css') }}/shop.css' type='text/css' media='all'/>
+
+    <link rel="shortcut icon" href='{{ asset('images') }}/favicon.png'>
+    <link rel='stylesheet' href='{{ asset('css') }}/settings.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='{{ asset('css') }}/layout.css' type='text/css' media='all'/>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body class="shop page-layout-left-sidebar">
+<div class="offcanvas open">
+    <div class="offcanvas-wrap">
+        <div class="offcanvas-user clearfix">
+            <a class="offcanvas-user-account-link" href="my-account.html">
+                <i class="fa fa-user"></i> GİRİŞ YAP/KAYIT OL
+            </a>
+        </div>
+        <nav class="offcanvas-navbar">
+            <ul class="offcanvas-nav">
+                <li><a href="{{ path("home") }}">ANASAYFA</a></li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="{{ path("vitrin") }}" class="dropdown-hover">KATEGORİLER <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li id="menu-item-10433" class="menu-item-has-children dropdown-submenu">
+                            <a href="#">ERKEK GİYİM <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Kot Pantolon</a></li>
+                                <li><a href="#">T-Shirt</a></li>
+                                <li><a href="#">Gömlek</a></li>
+                                <li><a href="#">Kazak</a></li>
+                                <li><a href="#">Kapri</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+                <li><a href="{{ path("iletisim") }}">İLETİŞİM</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div id="wrapper" class="wide-wrap">
+    <div class="offcanvas-overlay"></div>
+    <header class="header-type-classic header-absolute header-transparent">
+        <div class="topbar">
+            <div class="container topbar-wap">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="left-topbar">
+                            <div class="topbar-social">
+                                <a href="#" title="Facebook" target="_blank">
+                                    <i class="fa fa-facebook facebook-bg-hover"></i>
+                                </a>
+                                <a href="#" title="Twitter" target="_blank">
+                                    <i class="fa fa-twitter twitter-bg-hover"></i>
+                                </a>
+                                <a href="#" title="Google+" target="_blank">
+                                    <i class="fa fa-google-plus google-plus-bg-hover"></i>
+                                </a>
+                                <a href="#" title="Pinterest" target="_blank">
+                                    <i class="fa fa-pinterest pinterest-bg-hover"></i>
+                                </a>
+                                <a href="#" title="RSS" target="_blank">
+                                    <i class="fa fa-rss rss-bg-hover"></i>
+                                </a>
+                                <a href="#" title="Instagram" target="_blank">
+                                    <i class="fa fa-instagram instagram-bg-hover"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="right-topbar">
+                            <div class="user-login">
+                                <ul class="nav top-nav">
+                                    <li class="menu-item">
+                                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                            {#<span style="float: left; margin-right: 20px;">  {{ app.session.get('useremail') }}</span>#}
+
+                                            <a href="{{ path('userpanel') }}" style="float: left; margin-right: 20px;"> {{ app.session.get('useremail') }}</a>
+
+                                            <a href="{{ path('shopcart_index') }}" style="float: left; margin-right: 10px;">SEPETİM</a>
+
+                                            <a href="{{ path('app_logout') }}" style="float: left">ÇIKIŞ</a>
+
+
+                                        {% else %}
+                                            <a href="{{ path('user_app_login') }}" style="float: left; margin-right: 20px;"><i class="fa fa-user"></i> GİRİŞ YAP </a>  <a href="{{ path('user_kayit') }}" style="float: left; margin-right: 10px;"><i class="fa fa-user"></i> Kayıt Ol </a>
+                                        {% endif %}
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-container">
+            <div class="navbar navbar-default  navbar-scroll-fixed">
+                <div class="navbar-default-wrap">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 navbar-default-col">
+                                <div class="navbar-wrap">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar bar-top"></span>
+                                            <span class="icon-bar bar-middle"></span>
+                                            <span class="icon-bar bar-bottom"></span>
+                                        </button>
+                                        <a class="navbar-search-button search-icon-mobile" href="#">
+                                            <i class="fa fa-search"></i>
+                                        </a>
+                                        <a class="cart-icon-mobile" href="#">
+                                            <i class="elegant_icon_bag"></i><span>0</span>
+                                        </a>
+                                        <a class="navbar-brand" href="./">
+                                            <img class="logo" alt="MacroMan" src="{{ asset('images') }}/logo-transparent.png">
+                                            <img class="logo-fixed" alt="The DMCS" src="{{ asset('images') }}/logo-fixed.png">
+                                            <img class="logo-mobile" alt="The DMCS" src="{{ asset('images') }}/logo-mobile.png">
+                                        </a>
+                                    </div>
+                                    <nav class="collapse navbar-collapse primary-navbar-collapse">
+                                        <ul class="nav navbar-nav primary-nav">
+                                            <li><a href="{{ path("home") }}"><span class="underline">ANASAYFA</span></a></li>
+                                            <li class="menu-item-has-children megamenu megamenu-fullwidth dropdown">
+                                                <a href="{{ path("vitrin") }}" class="dropdown-hover">
+                                                    <span class="underline">Ürünler</span> <span class="caret"></span>
+                                                </a>
+                                            </li>
+                                            <li><a href="{{ path("hakkimizda") }}"><span class="underline">HAKKIMIZDA</span></a></li>
+                                            <li><a href="{{ path("iletisim") }}"><span class="underline">İLETİŞİM</span></a></li>
+                                            <li><a href="{{ path("referens") }}"><span class="underline">REFERANSLAR</span></a></li>
+                                            {#<li class="navbar-search">#}
+                                                {#<a class="navbar-search-button" href="#">#}
+                                                    {#<i class="fa fa-search"></i>#}
+                                                {#</a>#}
+                                            {#</li>#}
+                                            {#<li class="navbar-minicart navbar-minicart-nav">#}
+                                                {#<a class="minicart-link" href="#">#}
+															{#<span class="minicart-icon">#}
+																{#<i class="minicart-icon-svg elegant_icon_bag"></i>#}
+																{#<span>0</span>#}
+															{#</span>#}
+                                                {#</a>#}
+                                                {#<div class="minicart">#}
+                                                    {#<div class="minicart-header no-items show">#}
+                                                        {#Sepetiniz boş.#}
+                                                    {#</div>#}
+                                                    {#<div class="minicart-footer">#}
+                                                        {#<div class="minicart-actions clearfix">#}
+                                                            {#<a class="button" href="#">#}
+                                                                {#<span class="text">Alışveriş'e Dön!</span>#}
+                                                            {#</a>#}
+                                                        {#</div>#}
+                                                    {#</div>#}
+                                                {#</div>#}
+                                            {#</li>#}
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-search-overlay hide">
+                    <div class="container">
+                        <div class="header-search-overlay-wrap">
+                            <form class="searchform">
+                                <input type="search" class="searchinput" name="s" value="" placeholder="Ne aramıştınız?"/>
+                                <input type="submit" class="searchsubmit hidden" name="submit" value="ARA"/>
+                            </form>
+                            <button type="button" class="close">
+                                <span aria-hidden="true" class="fa fa-times"></span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>

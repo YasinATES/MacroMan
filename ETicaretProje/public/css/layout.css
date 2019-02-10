@@ -1,0 +1,209 @@
+.content_element {
+  margin-bottom: 35px;
+}
+.banner-fullwidth {
+  margin-bottom:0px;
+  background-image:url(../images/slideshow/4.jpg);
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+.banner-fullwidth.bg-2 {
+  background-image:url(../images/slideshow/abbout-bg.jpg);
+}
+.instagram-wrapper {
+  margin-bottom:0px;
+  padding-top:50px;
+  padding-bottom:0px;
+  background-color:#f6f6f6;
+}
+.instagram-wrapper .title {
+  margin-top:-35px;
+}
+.instagram-wrapper .fa-instagram {
+  color:#1e1e1e;
+}
+.icon_element.icon_element-outer .icon_element-inner .icon_element-icon {
+    font-size: 2.15em;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1 !important;
+    font-size-adjust: none;
+    font-stretch: normal;
+    -webkit-font-feature-settings: normal;
+    font-feature-settings: normal;
+    -webkit-font-language-override: normal;
+    font-language-override: normal;
+    -webkit-font-kerning: auto;
+    font-kerning: auto;
+    font-synthesis: weight style;
+    font-variant: normal;
+    text-rendering: auto;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.icon_element.icon_element-outer .icon_element-inner.icon_element-size-lg .icon_element-icon {
+    font-size: 2.85em;
+}
+/*--------------------- About Section -----------------*/
+.about-banner-text {
+  padding-top:50px;
+  padding-bottom:50px;
+}
+.about-banner-text .white {
+  color: #fff;
+}
+.about-content {
+  margin-top:80px;
+  margin-bottom:80px; 
+}
+.about-content .row {
+  border: 5px solid #000000;
+  padding: 30px;
+}
+.about-content p {
+  text-align: center;
+  font-size: 1.5em;
+}
+.banner-fullwidth .col-sm-2,
+.banner-fullwidth .col-sm-8 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: auto;
+}
+@media (min-width: 824px) {
+  .banner-fullwidth .col-sm-2 {
+      width: 16.66666667%;
+  }
+  .banner-fullwidth .col-sm-8 {
+	  width: 66.666666666%;
+  }
+}
+
+/*----------------------- Collection ------------------*/
+.section-collection + .section-collection {
+  margin-top:60px;
+  border-top-width:1px;
+  padding-top:30px;
+  border-top-color:#d1d4d6;
+  border-top-style:solid;
+}
+.section-collection .button {
+  margin-top:30px;
+  margin-bottom:0px;
+}
+
+/*--------------------- Contact Us ---------------------*/
+
+.contact-form-wrapper {
+  padding-right: 30px;
+}
+.contact-form-wrapper h2 {
+  margin-top: 0;
+}
+.contact-form-wrapper .title {
+  margin-top: 0px;
+  margin-bottom: 40px;
+}
+.contact-info {
+  border: 1px solid #d1d4d6;
+  padding: 15px;
+  background-color: #f7f8f9;
+}
+.contact-info .title {
+  margin: 0px;
+}
+.contact-info .title h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+.contact-info .sep_line {
+  border-color:#d1d4d6;
+}
+.contact-info .support-icon {
+  margin-bottom:15px;
+}
+.contact-info .support-icon i {
+  font-size: 18px;
+  vertical-align: text-bottom;
+  margin-right: 10px;
+}
+
+/*------------------------- FAQ --------------------------*/
+.faq-wrapper {
+  padding-right: 30px;
+}
+.faq-wrapper h2 {
+  margin-top: 0;
+}
+.faq-wrapper .title {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/*------------------------ Home -------------------------*/
+.banner {
+  margin-bottom: 0px;
+}
+.home-default-about {
+  background-color:#f6f6f6;
+}
+.home-default-about .container {
+  margin-top: 30px;
+}
+.home-default-about .welcome {
+  margin-right:0px;
+  margin-left:0px;
+}
+.home-default-about .welcome .col-sm-12 {
+  padding-top:50px;
+  padding-bottom:50px;
+  border-bottom: 1px solid #eeeeee
+}
+.home-default-about .offers {
+  margin-bottom:0px;
+  margin-left:0px;
+  border-right-width:0px;
+}
+.home-default-about .offers .offer-text {
+  padding-top:50px;
+  padding-bottom:10px;
+}
+.home-default-products {
+  padding-top:50px;
+  padding-bottom:50px;
+}
+.home-default-ads {
+  margin-bottom:0px;
+  padding-top:0px;
+  padding-bottom:50px;
+}
+.home-default-blog {
+  padding-top:0px;
+  padding-bottom:20px;
+}
+.home-instagram-banner {
+  margin-bottom:0px;
+}
+.home-instagram-products {
+  margin-top:70px;
+  margin-bottom:70px;
+}
+.home-product-banner {
+  margin-bottom:0px;
+}
+.home-product-products {
+  margin-top:70px;
+  margin-bottom:70px;
+}

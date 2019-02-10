@@ -1,0 +1,51 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Ürün Listesi{% endblock %}
+
+{% block content %}
+    <h2>Mesajlar</h2>
+    <br>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Gönderen</th>
+                <th>E-Mail</th>
+                <th>Mesaj</th>
+                <th>Yapılan İşlem</th>
+                <th>Durumu</th>
+                <th>Göster</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for message in messages %}
+            <tr>
+                <td>{{ message.id }}</td>
+                <td>{{ message.name }}</td>
+                <td>{{ message.email }}</td>
+                <td>{{ message.message }}</td>
+                <td>{{ message.comment }}</td>
+                <td>{{ message.status }}</td>
+                <td>
+                    <a class="btn btn-block btn btn-success btn-xs" href="javascript:openWin('{{ path('admin_messages_show', {'id': message.id}) }}','','toolbar-no,location=no,directories=0,status=no,top=100,left=200,manuBar=no,scrollBars=no,resizable=no,width=1000,height=800');">
+                        <span class="glyphicon glyphicon-zoom-in"> </span>Mesajı Oku</a>
+                </td>
+                <td>
+                    <form method="post" action="{{ path('admin_messages_delete', {'id': message.id}) }}" onsubmit="return confirm('Silme İşlemi Yapılacak Emin Misiniz?');">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ message.id) }}">
+                        <button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp; Sil</button>
+                    </form>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

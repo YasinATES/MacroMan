@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ImageSetting index{% endblock %}
+
+{% block content %}
+    <h1>ImageSetting index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>SliderImageOne</th>
+                <th>SliderImageTwo</th>
+                <th>AnasayfaImageOne</th>
+                <th>AnasayfaImageTwo</th>
+                <th>AnasayfaImageThree</th>
+                <th>AnasayfaImageFour</th>
+                <th>AnasayfaImageFive</th>
+                <th>AnasayfaImageSix</th>
+                <th>SliderKampanya1</th>
+                <th>SliderKampanyaIki</th>
+                <th>SliderKampanyaUc</th>
+                <th>SliderKampanyaDort</th>
+                <th>SliderKampanyaBes</th>
+                <th>SliderKampanyaAlti</th>
+                <th>UrunlerImage</th>
+                <th>HakkimizdaImage</th>
+                <th>IletisimImage</th>
+                <th>ReferansImage</th>
+                <th>KampanyaLinkOne</th>
+                <th>KampanyaLinkTwo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for setting in settings %}
+            <tr>
+                <td>{{ image_setting.id }}</td>
+                <td>{{ image_setting.SliderImageOne }}</td>
+                <td>{{ image_setting.SliderImageTwo }}</td>
+                <td>{{ image_setting.AnasayfaImageOne }}</td>
+                <td>{{ image_setting.AnasayfaImageTwo }}</td>
+                <td>{{ image_setting.AnasayfaImageThree }}</td>
+                <td>{{ image_setting.AnasayfaImageFour }}</td>
+                <td>{{ image_setting.AnasayfaImageFive }}</td>
+                <td>{{ image_setting.AnasayfaImageSix }}</td>
+                <td>{{ image_setting.SliderKampanya1 }}</td>
+                <td>{{ image_setting.SliderKampanyaIki }}</td>
+                <td>{{ image_setting.SliderKampanyaUc }}</td>
+                <td>{{ image_setting.SliderKampanyaDort }}</td>
+                <td>{{ image_setting.SliderKampanyaBes }}</td>
+                <td>{{ image_setting.SliderKampanyaAlti }}</td>
+                <td>{{ image_setting.UrunlerImage }}</td>
+                <td>{{ image_setting.HakkimizdaImage }}</td>
+                <td>{{ image_setting.IletisimImage }}</td>
+                <td>{{ image_setting.ReferansImage }}</td>
+                <td>{{ image_setting.KampanyaLinkOne }}</td>
+                <td>{{ image_setting.KampanyaLinkTwo }}</td>
+                <td>
+                    <a href="{{ path('admin_image_setting_show', {'id': image_setting.id}) }}">show</a>
+                    <a href="{{ path('admin_image_setting_edit', {'id': image_setting.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="22">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_image_setting_new') }}">Create new</a>
+{% endblock %}

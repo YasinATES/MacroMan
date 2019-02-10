@@ -1,0 +1,65 @@
+{% extends 'userpanel/index.html.twig' %}
+
+{% block content %}
+
+    <div class="content-container">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-9 main-wrap">
+    <div class="main-content">
+
+
+<div class="content-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 main-wrap">
+                <div class="main-content">
+                    <div class="section" style="margin-left: 1%;">
+                        <!-- container -->
+                        <div class="container" style=" height: 600px;  width:40%">
+                            <!-- row -->
+                            <div class="row">
+
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Amount</th>
+                                        <th>City</th>
+                                        <th>Phone</th>
+                                        <th>Shipinfo</th>
+                                        <th>Note</th>
+                                        <th>actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for order in orders %}
+                                        <tr>
+                                            <td>{{ order.name }}</td>
+                                            <td>{{ order.amount }}</td>
+                                            <td>{{ order.city }}</td>
+                                            <td>{{ order.phone }}</td>
+                                            <td>{{ order.shipinfo }}</td>
+                                            <td>{{ order.note }}</td>
+                                            <td>
+                                                <a href="{{ path('orders_show', {'id': order.id}) }}">show</a>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="13">no records found</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

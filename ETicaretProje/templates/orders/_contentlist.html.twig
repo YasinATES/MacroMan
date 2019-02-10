@@ -1,0 +1,62 @@
+<div class="content-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 main-wrap">
+                <div class="main-content">
+                    <form id="checkout-form"  name="order" action="{{ path('orders_new') }}"
+                          method="post">
+                        <div class="col-md-6">
+                            <div class="billing-details">
+                                <div class="section-title">
+                                    <h3 class="title">Fatura Detayları</h3>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ödenecek Tutar: </label>
+                                    <input class="form-control" type="text" name="orders[amount]" value="{{ total }}"
+                                           placeholder="Total">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="orders[name]" value="{{ app.user.name }}"
+                                           placeholder="Adı Soyadı">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="orders[addres]"
+                                           value="{{ app.user.addres }}" placeholder="Adres">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="orders[city]" value="{{ app.user.city }}"
+                                           placeholder="Şehir">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="orders[tel]" value="{{ app.user.tel }}"
+                                           placeholder="Phone">
+                                </div>
+                                <label>KREDİ KARTI BİLGİLERİ</label>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="cardholdername"
+                                           placeholder="KREDİ KARTINDAKİ ADI SOYAD">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="number" name="cartnumber" placeholder="KART NUMARASI">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="cart"
+                                           placeholder="SON KULLANMA TARİHİ AA/YY">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="number" name="secure" placeholder="GÜVENLİK KODU">
+                                </div>
+
+                                <input type="hidden" name="token" value="{{ csrf_token('form-order') }}"/>
+
+                                <label class="col-sm-2 control-label"> </label>
+                                <div class="control-group" class="col-sm-5">
+                                    <input class="btn btn-success btn-block" type="submit" value="Satın Al"/>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>

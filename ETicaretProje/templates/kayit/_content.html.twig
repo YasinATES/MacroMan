@@ -1,0 +1,49 @@
+<div class="content-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 main-wrap">
+                <div class="main-content">
+                    <div class="shop">
+                        <form method="POST" id="userregisterModalForm">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                </button>
+                                <h4 class="modal-title">Hesap Oluştur</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="user_password">Ad Soyad</label>
+                                    <input type="text" id="user_password" required value="" name="users[name]"
+                                           class="form-control" placeholder="Ad Soyad">
+                                </div>
+                                <div class="form-group">
+                                    <label>E-Mail</label>
+                                    <input type="email" name="users[email]" required class="form-control" value=""
+                                           placeholder="E-Mail">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user_email">Şifre</label>
+                                    <input type="password" id="user_email" name="users[password]" required
+                                           class="form-control" value=""
+                                           placeholder="Şifre">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user_password">Telefon</label>
+                                    <input type="text" id="cuser_password" value="" name="users[tel]"
+                                           class="form-control" placeholder="Telefon">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+							<span class="user-login-modal-link pull-left">
+								<a data-rel="loginModal" href="#loginModal">Zaten Hesabın Var Mı?</a>
+							</span>
+                                <button type="submit" class="btn btn-default btn-outline">Kayıt Ol</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

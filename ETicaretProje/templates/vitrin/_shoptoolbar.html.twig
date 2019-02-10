@@ -1,0 +1,38 @@
+<div class="shop-toolbar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 main-wrap pull-right">
+                <div class="view-mode">
+                    <a class="grid-mode active" title="Grid"><i class="fa fa-th"></i></a>
+                    <a class="list-mode" title="List" href="#"><i class="fa fa-th-list"></i></a>
+                </div>
+                <form class="shop-ordering clearfix">
+                    <div class="shop-ordering-select">
+                        <label class="hide">Sorting:</label>
+                        <div class="form-flat-select">
+                            <select name="orderby" class="orderby">
+                                <option value="menu_order" selected='selected'>Varsayılan Sıralama</option>
+                                <option value="popularity">En Çok Tercih Edilenler</option>
+                                <option value="date">En Yeniye Göre Sıralama</option>
+                                <option value="price">Fiyata Göre Sırala: Yüksekten Düşüğe</option>
+                                <option value="price-desc">Fiyata Göre Sırala: Düşükten Yükseğe</option>
+                            </select>
+                            <i class="fa fa-angle-down"></i>
+                        </div>
+                    </div>
+                    <div class="shop-ordering-select">
+                        <label class="hide">Show:</label>
+                        {#<div class="form-flat-select">#}
+                            {#<select name="per_page" class="per_page">#}
+                                {#<option value="" selected='selected'>12</option>#}
+                                {#<option value="">24</option>#}
+                                {#<option value="">36</option>#}
+                            {#</select>#}
+                            {#<i class="fa fa-angle-down"></i>#}
+                        {#</div>#}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

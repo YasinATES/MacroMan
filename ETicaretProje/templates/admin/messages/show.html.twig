@@ -1,0 +1,45 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Messages{% endblock %}
+
+{% block content %}
+    <h1>Messages</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ message.id }}</td>
+            </tr>
+            <tr>
+                <th>Gönderen</th>
+                <td>{{ message.name }}</td>
+            </tr>
+            <tr>
+                <th>E-Mail</th>
+                <td>{{ message.email }}</td>
+            </tr>
+            <tr>
+                <th>Mesaj</th>
+                <td>{{ message.message }}</td>
+            </tr>
+            <tr>
+                <th>Yapılan İşlem</th>
+                <td>{{ message.comment }}</td>
+            </tr>
+            <tr>
+                <th>Durumu</th>
+                <td>{{ message.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <form action="{{ path('admin_messages_update',{'id':message.id}) }}" method="post" >
+        <textarea name="comment" cols="120" rows="2">{{ message.comment }}</textarea>
+        <br><br>
+        <input type="submit" value="Guncelle" class="btn btn-info btn-lg btn-block">
+    </form>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,121 @@
+<div class="heading-container">
+    <div class="container heading-standar">
+        <div class="page-breadcrumb">
+            <ul class="breadcrumb">
+                <li><span>Sepetim</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content-container">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12 main-wrap">
+                <div class="main-content">
+                    <div class="shop">
+                        <form>
+                            <table class="table shop_table cart">
+                                <thead>
+                                <tr>
+                                    <th class="product-remove hidden-xs">&nbsp;</th>
+                                    <th class="product-thumbnail hidden-xs">&nbsp;</th>
+                                    <th class="product-name">Ürün</th>
+                                    <th class="product-price text-center">Fiyat</th>
+                                    <th class="product-quantity text-center">Adet</th>
+                                    <th class="product-subtotal text-center hidden-xs">Toplam</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% set totalAmount = 0 %}
+                                {% for shopcart in shopcarts %}
+                                <tr class="cart_item">
+                                    <td class="product-remove hidden-xs">
+                                        <a href="{{ path('shopcart_del', {'id': shopcart.id}) }}" class="remove" title="Bu ürünü sil">&times;</a>
+
+                                    </td>
+                                    <td class="product-thumbnail hidden-xs">
+                                        <a href="#">
+                                            <img width="100" height="150"
+                                                 src="{{ asset('uploads') }}/images/{{ shopcart.image }}" alt="Product-1"/>
+                                        </a>
+                                    </td>
+                                    <td class="product-name">
+                                        <a href="#">{{ shopcart.title }}</a>
+                                        <dl class="variation">
+                                            <dt class="variation-Color"></dt>
+                                            <dd class="variation-Color"><p></p></dd>
+                                            <dt class="variation-Size"></dt>
+                                            <dd class="variation-Size"><p></p></dd>
+                                        </dl>
+                                    </td>
+                                    <td class="product-price text-center">
+                                        <span class="amount">{{ shopcart.sprice }} ₺</span>
+                                    </td>
+                                    <td class="product-quantity text-center">
+                                        <div class="quantity">
+                                            <input type="number" step="1" min="0" name="qunatity"
+                                                   value="{{ shopcart.quantity }}" title="Qty" class="input-text qty text"
+                                                   size="4"/>
+                                        </div>
+                                    </td>
+                                    <td class="product-subtotal hidden-xs text-center">
+                                        <span class="amount">{{ shopcart.quantity * shopcart.sprice }}₺</span>
+                                        {% set totalAmount = totalAmount + (shopcart.quantity * shopcart.sprice) %}
+                                    </td>
+                                </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="7">Sepetinizde Ürün Yok</td>
+                                    </tr>
+                                {% endfor %}
+
+                                <tr>
+                                    <td colspan="6" class="actions">
+                                        {#<div class="coupon">#}
+                                        {#<label for="coupon_code">Coupon:</label>#}
+                                        {#<input type="text" name="coupon_code" class="input-text"#}
+                                        {#id="coupon_code" value="" placeholder="Coupon code"/>#}
+                                        {#<input type="submit" class="button" name="apply_coupon"#}
+                                        {#value="Apply Coupon"/>#}
+                                        {#</div>#}
+
+                                        {#<input type="submit" class="button update-cart-button"#}
+                                               {#name="update_cart" value="Sepeti Güncelle"/>#}
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </form>
+
+
+                        <div class="cart-collaterals">
+                            <div class="cart_totals">
+                                <h2>Sepet Toplamı</h2>
+                                <table>
+                                    <tr class="cart-subtotal">
+                                        <th>Ürün Fiyatları</th>
+                                        <td><span class="amount">{{ totalAmount }} ₺</span></td>
+                                    </tr>
+                                    {#<tr class="shipping">#}
+                                        {#<th>Kargo</th>#}
+                                        {#<td><span class="amount">5 ₺</span></td>#}
+                                    {#</tr>#}
+                                    <tr class="order-total">
+                                        <th>Genel Toplam</th>
+                                        <td><strong><span class="amount">{% set totalAmount = totalAmount  %} {{ totalAmount }} ₺</span></strong></td>
+                                    </tr>
+                                </table>
+                                <div class="wc-proceed-to-checkout">
+                                    <a href="{{ path('orders_new') }}" class="checkout-button button alt wc-forward">Ödemeye Geç</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

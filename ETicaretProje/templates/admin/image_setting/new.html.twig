@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ImageSetting{% endblock %}
+
+{% block body %}
+    <h1>Create new ImageSetting</h1>
+
+    {{ include('admin_image_setting/_form.html.twig') }}
+
+    <a href="{{ path('admin_image_setting_index') }}">back to list</a>
+{% endblock %}

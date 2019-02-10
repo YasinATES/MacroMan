@@ -1,0 +1,57 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Kategoriler{% endblock %}
+
+{% block content %}
+    <h1>Kategori</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ category.id }}</td>
+            </tr>
+            <tr>
+                <th>Parent_id</th>
+                <td>{{ category.parentId }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ category.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ category.description }}</td>
+            </tr>
+            <tr>
+                <th>Keywords</th>
+                <td>{{ category.keywords }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ category.status }}</td>
+            </tr>
+            <tr>
+                <th>Create_at</th>
+                <td>{{ category.createAt ? category.createAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ category.updateAt ? category.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row col-md-12">
+        <div class="col-md-6 form-group">
+            <a href="{{ path('admin_categories_index') }}" class="btn btn-primary btn-block"><span
+                        class="glyphicon glyphicon-arrow-left"> </span> Listeye Geri Dön</a>
+        </div>
+        <div class="col-md-6 form-group">
+            <form method="post" action="{{ path('admin_categories_delete', {'id': category.id}) }}" onsubmit="return confirm('Silme İşlemi Yapılacak Emin Misiniz?');">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ category.id) }}">
+                <button class="btn btn-block btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp; Sil</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

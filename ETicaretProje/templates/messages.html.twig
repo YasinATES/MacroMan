@@ -1,0 +1,11 @@
+{% for label, flashes in app.session.flashbag.all %}
+    {% for flash in flashes %}
+        {% if(label == 'form') %}
+            <script>swal("Mesajınız Gönderildi", "", "success");</script> {{ flash }}
+        {% elseif(label == 'warning') %}
+            <div class="alert alert-danger">
+                <strong>ERROR!</strong> {{ flash }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endfor %}

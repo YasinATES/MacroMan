@@ -1,0 +1,89 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Ürün Listesi{% endblock %}
+
+{% block content %}
+    <h2>Ürünler</h2>
+    <br>
+    {{ include('admin/messages.html.twig') }}
+    <a href="{{ path('admin_product_new') }}" class="btn btn-info btn-md btn-block"> <span
+                class="glyphicon glyphicon-plus"></span>Ürün Ekle</a>
+    <br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Amount</th>
+            <th>Pprice</th>
+            <th>Sprice</th>
+            <th>Minamout</th>
+            <th>Image</th>
+            <th>Galeri</th>
+            <th>Kategorisi</th>
+            <th>Status</th>
+            <th>Oluşturma Tarihi</th>
+            <th>Güncelleme Tarihi</th>
+            <th>Göster</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.title }}</td>
+                <td>{{ product.amount }}</td>
+                <td>{{ product.pprice }}</td>
+                <td>{{ product.sprice }}</td>
+                <td>{{ product.minamout }}</td>
+                <td>
+                    <a href="javascript:openWin('{{ path('admin_product_iedit', {'id': product.id}) }}','','toolbar-no,location=no,directories=0,status=no,top=100,left=200,manuBar=no,scrollBars=no,resizable=no,width=900,height=600');">
+                        {% if product.image==null %}
+                        <img src="{{ url('admin') }}/img/image.png" height="32">
+                        {% else %}
+                        <img src="{{ asset('uploads') }}/images/{{ product.image }}" height="60">
+                    {% endif %}</td>
+
+                <td>
+                    <a href="javascript:openWin('{{ path('admin_image_new', {'pid': product.id}) }}','','toolbar-no,location=no,directories=0,status=no,top=100,left=200,manuBar=no,scrollBars=no,resizable=no,width=1000,height=800');">
+                    <img src="{{ url('admin') }}/img/gallery.png" height="32">
+                    </a>
+                </td>
+                <td>
+                    {% for cat in catlist %}
+                        {% if cat.id==product.categoryid %}
+                            {{ cat.title }}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+                <td>{{ product.status }}</td>
+                <td>{{ product.createAt ? product.createAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ product.updateAt ? product.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('admin_product_show', {'id': product.id}) }}"
+                       class="btn btn-block btn btn-success btn-xs"><span class="glyphicon glyphicon-zoom-in"> </span>
+                        Göster</a>
+                </td>
+                <td>
+                    <a href="{{ path('admin_product_edit', {'id': product.id}) }}"
+                       class="btn btn-block btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span>
+                        Güncelle</a>
+                </td>
+                <td>
+                    <form method="post" action="{{ path('admin_product_delete', {'id': product.id}) }}" onsubmit="return confirm('Silme İşlemi Yapılacak Emin Misiniz?');">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
+                        <button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp; Sil</button>
+                    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="19">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

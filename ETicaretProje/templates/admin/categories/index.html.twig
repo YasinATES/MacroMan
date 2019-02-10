@@ -1,0 +1,71 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Kategori Listesi{% endblock %}
+
+{% block content %}
+    <h2>Kategoriler</h2>
+    <br>
+    {{ include('admin/messages.html.twig') }}
+    <a href="{{ path('admin_categories_new') }}"class="btn btn-info btn-md btn-block"> <span class="glyphicon glyphicon-plus"></span>Kategori Ekle</a>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Parent ID <br> Üst ID</th>
+                <th>Parent Categoriy <br> Üst Kategorisi</th>
+                <th>Title  <br>Başlık </th>
+                <th>Description  <br>Açıklama </th>
+                <th> Keywords  <br> Anahtar Kelime </th>
+                <th> Status  <br> Durum</th>
+                <th>Oluşturma Tarihi </th>
+                <th>Güncelleme Tarihi</th>
+                <th>Göster</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.parentId }}</td>
+                {% if category.parentid==0  %}
+                    <td> Ana Kategori</td>
+                {% else %}
+                    {% for cat in categories2 %}
+                        {% if  cat.id ==category.parentid %}
+                            <td>{{ cat .title }}</td>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+                <td>{{ category.title }}</td>
+                <td>{{ category.description }}</td>
+                <td>{{ category.keywords }}</td>
+                <td>{{ category.status }}</td>
+                <td>{{ category.createAt ? category.createAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ category.updateAt ? category.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('admin_categories_show', {'id': category.id}) }}" class="btn btn-block btn btn-success btn-xs"><span class="glyphicon glyphicon-zoom-in"> </span> Göster</a>
+                </td>
+                <td>
+                    <a href="{{ path('admin_categories_edit', {'id': category.id}) }}"class="btn btn-block btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span> Güncelle</a>
+                </td>
+                <td>
+                    <form method="post" action="{{ path('admin_categories_delete', {'id': category.id}) }}" onsubmit="return confirm('Silme İşlemi Yapılacak Emin Misiniz?');">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ category.id) }}">
+                        <button class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp; Sil</button>
+                    </form>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

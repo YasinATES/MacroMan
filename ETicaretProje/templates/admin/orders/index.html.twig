@@ -1,0 +1,40 @@
+{% extends 'admin/base.html.twig' %}
+
+
+
+{% block content %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>City</th>
+                <th>Phone</th>
+                <th>Shipinfo</th>
+                <th>Note</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.name }}</td>
+                <td>{{ order.amount }}</td>
+                <td>{{ order.city }}</td>
+                <td>{{ order.phone }}</td>
+                <td>{{ order.shipinfo }}</td>
+                <td>{{ order.note }}</td>
+                <td>
+                    <a href="{{ path('admin_orders_show', {'id': order.id}) }}"  class="btn btn-block btn btn-success btn-xs"><span class="glyphicon glyphicon-zoom-in"> </span>
+                        Göster</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

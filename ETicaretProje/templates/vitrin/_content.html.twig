@@ -1,0 +1,86 @@
+<div class="content-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 main-wrap">
+                <div class="main-content">
+                    <div class="shop-loop grid">
+                        <h1>{{ data[0].title }}</h1>
+                        <ul class="products">
+                            {% for rs in products %}
+                            <li class="product">
+                                <div class="product-container">
+                                    <figure>
+                                        <div class="product-wrap">
+                                            <div class="product-images">
+                                                <div class="shop-loop-thumbnail">
+                                                    {#style="height: 100px; width: auto;"#}
+                                                    <a href="{{ path('product_detail',{'id':rs.id}) }}"><img src="{{ asset('uploads') }}/images/{{ rs.image }}" alt="Product-1"/></a>
+                                                </div>
+                                                {#<div class="yith-wcwl-add-to-wishlist">#}
+                                                    {#<div class="yith-wcwl-add-button">#}
+                                                        {#<a href="#" class="add_to_wishlist">#}
+                                                            {#Add to Wishlist#}
+                                                        {#</a>#}
+                                                    {#</div>#}
+                                                {#</div>#}
+                                                <div class="clear"></div>
+                                                {#<div class="shop-loop-quickview">#}
+                                                    {#<a href="#" data-rel="quickViewModal"><i class="fa fa-plus"></i></a>#}
+                                                {#</div>#}
+                                            </div>
+                                        </div>
+                                        <figcaption>
+                                            <div class="shop-loop-product-info">
+                                                <div class="info-title">
+                                                    <h3 class="product_title">{{ rs.title }}</h3>
+                                                </div>
+                                                <div class="info-meta">
+                                                    <div class="info-price">
+																	<span class="price">
+                                                                        {#<span> <del>742,90TL</del></span>#}
+                                                                        <span class="amount">{{ rs.sprice }}&#x20BA</span>
+																	</span>
+                                                    </div>
+                                                    <div class="loop-add-to-cart">
+                                                        <span >Ürüne Git</span>
+                                                    </div>
+                                                </div>
+                                                <div class="info-excerpt">
+                                                     {{ rs.detail|raw }}
+                                                </div>
+                                                <div class="list-info-meta clearfix">
+                                                    <div class="info-price">
+																	<span class="price">
+                                                                        {#<span> <del>742,90TL</del></span>#}
+																		<span class="amount">{{ rs.sprice }}&#x20BA</span>
+																	</span>
+                                                    </div>
+                                                    <div class="list-action clearfix">
+                                                        <div class="loop-add-to-cart">
+                                                            <span >Ürüne Git</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                    {#<nav class="shop-pagination">#}
+                        {#<p class="shop-result-count">#}
+                            {#Showing 1&ndash;12 of 14 results#}
+                        {#</p>#}
+                        {#<div class="paginate">#}
+                            {#<div class="paginate_links">#}
+                                {#<span class='page-numbers current'>1</span>#}
+                                {#<a class='page-numbers' href='#'>2</a>#}
+                                {#<a class="next page-numbers" href="#"><i class="fa fa-angle-right"></i></a>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</nav>#}
+                </div>
+            </div>

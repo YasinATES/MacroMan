@@ -1,0 +1,54 @@
+<div class="content-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 main-wrap">
+                <div class="main-content">
+                    <div class="shop">
+                        <form id="userloginModalForm" method="POST" action="{{ path('user_app_login') }}">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                    </button>
+                                    <h4 class="modal-title">Giriş Yap</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label>E-Mail</label>
+                                        <input type="email" id="username" name="email" class="form-control"
+                                               placeholder="Email" required
+                                               autofocus>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Şifre</label>
+                                        <input type="password" id="password" name="password" class="form-control"
+                                               placeholder="Şifre"
+                                               required>
+                                    </div>
+                                    <div class="checkbox clearfix">
+                                        <div class="form-flat-checkbox pull-left">
+                                            <input type="checkbox" name="rememberme" id="rememberme"
+                                                   value="forever"><i></i>&nbsp;Beni Hatırla
+                                        </div>
+                                        <span class="lostpassword-modal-link pull-right">
+									<a href="#lostpasswordModal"
+                                       data-rel="lostpasswordModal">Şifrenizi mi Unuttunuz?</a>
+								</span>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+							<span class="user-login-modal-register pull-left">
+								<a data-rel="registerModal" href="#">Kayıt Olmadınzı Mı?</a>
+							</span>
+                                    <button type="submit" class="btn btn-default btn-outline">Giriş Yap</button>
+                                </div>
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                {% if error %}
+                                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

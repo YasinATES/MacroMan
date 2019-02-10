@@ -1,0 +1,24 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}New Image{% endblock %}
+{% block content %}
+    <h1>Galeriye Yeni Resim Ekle</h1>
+
+    {{ include('admin/image/_form.html.twig') }}
+
+<table class="table">
+    <tbody>
+    <tr>
+        <th>Resim</th>
+        <th>Sil</th>
+    </tr>
+    {% for image in imagelist %}
+    <tr>
+        <td> <img src="{{ asset('uploads') }}/images/{{ image.image }}" height="150"> </td>
+
+       <td><a href="{{ path('admin_image_mydelete',{'id':image.id,'pid':image.productid}) }}" onclick="return confirm('Silme İşlemi Yapılacak Emin Misiniz?')" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp; Sil</a> </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

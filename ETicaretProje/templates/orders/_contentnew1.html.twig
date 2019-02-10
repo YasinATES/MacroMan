@@ -1,0 +1,50 @@
+<div class="content-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 main-wrap">
+                <div class="main-content">
+                    <h1>Sipariş Detayları</h1>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Adı</th>
+                            <th>Fiyatı</th>
+                            <th>Adres</th>
+                            <th>Şehir</th>
+                            <th>Telefon</th>
+                            <th>Kargo Bilgisi</th>
+                            <th>Durum</th>
+                            {#<th>Create_at</th>#}
+                            {#<th>Update_at</th>#}
+                            <th>Göster</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for order in orders %}
+                            <tr>
+                                <td>{{ order.name }}</td>
+                                <td>{{ order.amount }}</td>
+                                <td>{{ order.adress }}</td>
+                                <td>{{ order.city }}</td>
+                                <td>{{ order.phone }}</td>
+                                <td>{{ order.shipinfo }}</td>
+                                <td>{{ order.status }}</td>
+                                {#<td>{{ order.createAt ? order.createAt|date('Y-m-d H:i:s') : '' }}</td>#}
+                                {#<td>{{ order.updateAt ? order.updateAt|date('Y-m-d H:i:s') : '' }}</td>#}
+                                <td>
+                                    <a href="{{ path('orders_show', {'id': order.id}) }}" class="btn btn-block btn btn-success btn-xs"><span class="glyphicon glyphicon-zoom-in"> </span>Göster</a>
+
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="13">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>

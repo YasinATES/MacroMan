@@ -1,0 +1,92 @@
+<div class="content-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 main-wrap">
+                <div class="main-content">
+
+                    <h1>Detaylar</h1>
+
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <td>{{ order.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Kullanıcı ID</th>
+                            <td>{{ order.userid }}</td>
+                        </tr>
+                        <tr>
+                            <th>Fiyat</th>
+                            <td>{{ order.amount }}</td>
+                        </tr>
+                        <tr>
+                            <th>Adı</th>
+                            <td>{{ order.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Adres</th>
+                            <td>{{ order.adress }}</td>
+                        </tr>
+                        <tr>
+                            <th>Şehir</th>
+                            <td>{{ order.city }}</td>
+                        </tr>
+                        <tr>
+                            <th>Telefon</th>
+                            <td>{{ order.phone }}</td>
+                        </tr>
+                        <tr>
+                            <th>Kargo Bilgisi</th>
+                            <td>{{ order.shipinfo }}</td>
+                        </tr>
+                        <tr>
+                            <th>Durum</th>
+                            <td>{{ order.status }}</td>
+                        </tr>
+                        <tr>
+                            <th>Not</th>
+                            <td>{{ order.note }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <h1 style="font-size: 30px;">Sepet Detayı</h1>
+                    <br/>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>ÜRÜN</td>
+                            <td>BİRİM FİYATI</td>
+                            <td>ADET</td>
+                            <td>FİYAT</td>
+                            <td>DURUM</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% set count = 1 %}
+                        {% for orderproduct in orderdetail %}
+                            <tr>
+                                <td>{{ count }}</td>
+                                <td>{{ orderproduct.name }}</td>
+                                <td>{{ orderproduct.price }}</td>
+                                <td>{{ orderproduct.quantity }}</td>
+                                <td>{{ orderproduct.amount }}</td>
+                                <td>{{ orderproduct.status }}</td>
+                            </tr>
+                            {% set count = count + 1 %}
+                        {% else %}
+                            <tr>
+                                <td colspan="5"><i style="font-size: 15px; color: red;">Siparişiniz bulunmuyor.</i></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <a href="{{ path('orders_index') }}" class="btn btn-primary btn-block"><span
+                                class="glyphicon glyphicon-arrow-left"> </span> Listeye Geri Dön</a>
+
+
+                </div>
+            </div>

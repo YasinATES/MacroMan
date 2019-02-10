@@ -1,0 +1,29 @@
+<div id="sidebar-nav" class="sidebar">
+    <div class="sidebar-scroll">
+        <nav>
+            <ul class="nav">
+                <li><a href="{{ path('admin') }}"><i class="lnr lnr-home"></i> <span>Anasayfa</span></a></li>
+                <li>
+                    <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="fa fa-shopping-cart"></i> <span>Siparişler</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                    <div id="subPages" class="collapse ">
+                        <ul class="nav">
+                            <li><a href="{{ path('admin_orders_index' , {'slug' : 'new'}) }}" class="">Yeni Sipariş</a></li>
+                            <li><a href="{{ path('admin_orders_index' , {'slug' : 'accepted'}) }}" class="">Onaylanan Siparişler</a></li>
+                            <li><a href="{{ path('admin_orders_index' , {'slug' : 'inshipping'}) }}" class="">İptal Edilen Siparişler</a></li>
+                            <li><a href="{{ path('admin_orders_index' , {'slug' : 'canceled'}) }}" class="">Kargodaki Siparişler</a></li>
+                            <li><a href="{{ path('admin_orders_index' , {'slug' : 'complated'}) }} " class="">Tamamlanan Siparişler</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="{{ path('admin_product_index')}}" class=""><i class="glyphicon glyphicon-list-alt"></i> <span>Ürünler</span></a></li>
+                <li><a href="{{ path('admin_categories_index')}}" class=""><i class="glyphicon glyphicon-th"></i> <span>Kategoriler</span></a></li>
+                {#<li><a href="#" class=""><i class="glyphicon glyphicon-barcode"></i> <span>Türler</span></a></li>#}
+                <li><a href="{{ path("admin/user") }}" class=""><i class="glyphicon glyphicon-user"></i> <span>Üyeler</span></a></li>
+
+                <li><a href="{{ path('admin_messages_index')}}" class=""><i class="glyphicon glyphicon-envelope"></i> <span>Üye Mesajları</span></a></li>
+                {#<li><a href="#" class=""><i class="glyphicon glyphicon-comment"></i> <span>Üye Yorumları</span></a></li>#}
+                {#<li><a href="#" class=""><i class="glyphicon glyphicon-star"></i> <span>SSS</span></a></li>#}
+            </ul>
+        </nav>
+    </div>
+</div>

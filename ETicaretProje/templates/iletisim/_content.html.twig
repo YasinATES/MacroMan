@@ -1,0 +1,92 @@
+<div class="content-container">
+    <div class="container-full">
+        <div class="row">
+            <div class="col-md-12 main-wrap">
+                <div class="main-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="row contact-form-wrapper">
+                                    <div class="col-sm-12">
+                                        <div class="title">
+                                            <h2>İletişime Geçin</h2>
+                                        </div>
+                                        <form method="post"  name="messages">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div>Ad<br/>
+                                                        <p class="form-control-wrap your-name">
+                                                            <input type="text" name="messages[name]" value="" size="40"
+                                                                   class="form-control text validates-as-required"/>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div>Email<br/>
+                                                        <p class="form-control-wrap your-email">
+                                                            <input type="email" name="messages[email]" value="" size="40"
+                                                                   class="form-control text email validates-as-required validates-as-email"/>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div>Mesajınız<br/>
+                                                        <p class="form-control-wrap your-message"><textarea
+                                                                    name="messages[message]" cols="40" rows="10"
+                                                                    class="form-control textarea"></textarea>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="token" value="{{ csrf_token('form-message') }}"/>
+                                            <input type="submit" value="Gönder" class="form-control submit"/>
+                                            {{ include('messages.html.twig') }}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <br> <br> <br> <br>  <br>
+                                <div class="row contact-info">
+                                    <div class="col-sm-12">
+                                        <div class="title">
+                                            <h4>{{ data[0].company }}</h4>
+                                        </div>
+                                        <div class="separator content_element separator_align_center sep_width_100 sep_pos_align_center separator_no_text">
+														<span class="sep_holder sep_holder_l">
+															<span class="sep_line"></span>
+														</span>
+                                            <span class="sep_holder sep_holder_r">
+															<span class="sep_line"></span>
+														</span>
+                                        </div>
+                                        <div class="content_element">
+                                            <div class="support-icon">
+                                                <i class="fa fa-map-marker"></i>
+                                                {{ data[0].address }}
+                                            </div>
+                                            <div class="support-icon">
+                                                <i class="fa fa-phone"></i>
+                                                {{ data[0].phone }}
+                                            </div>
+                                            <div class="support-icon">
+                                                <i class="fa fa-fax"></i>
+                                                {{ data[0].fax }}
+                                            </div>
+                                            <div class="support-icon">
+                                                <i class="fa fa-envelope-o"></i>
+                                                <a href="mailto:email@domain.com">
+                                                    {{ data[0].email }}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

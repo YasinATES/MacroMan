@@ -1,0 +1,105 @@
+<div class="col-md-12">
+    <form method="post">
+        <div class="form-group col-md-6 ">
+            <label>Kategori</label>
+            <select name="product[category_id]" class="form-control">
+                {% if(catname) %}
+                <option value="{{ product.categoryid }} ">{{ catname[0].title }}</option>
+                {% endif %}
+
+                {% for cat in catlist %}
+                    <option value="{{ cat.id }}">{{ cat.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group col-md-6 ">
+            <label>Title(Başlık)</label>
+            <input type="text" class="form-control" name="product[title]" value="{{ product.title }}"
+                   placeholder="Title(Başlık)">
+        </div>
+        <div class="form-group col-md-6 ">
+            <label>Keywords(Anahtar Kelime)</label>
+            <input type="text" class="form-control" name="product[keywords]" value="{{ product.keywords }}"
+                   placeholder="Keywords(Anahtar Kelime)">
+        </div>
+        <div class="form-group col-md-6 ">
+            <label>Type(Tip)</label>
+            <input type="text" class="form-control" name="product[type]" value="{{ product.type }}"
+                   placeholder="Type(Tip)">
+        </div>
+        <div class="form-group col-md-6 ">
+            <label>Publisher ID(Satıcı ID)</label>
+            <input type="number" class="form-control" name="product[publisher_id]" value="{{ product.publisherid }}"
+                   placeholder="Publisher ID(Satıcı ID)">
+        </div>
+        <div class="form-group col-md-6 ">
+            <label>Year(Yıl)</label>
+            <input type="number" class="form-control" name="product[year]" value="{{ product.year }}"
+                   placeholder="Year(Yıl)">
+        </div>
+        <div class="form-group col-md-6 ">
+            <label>Amount(Stok Miktarı)</label>
+            <input type="number" class="form-control" name="product[amount]" value="{{ product.amount }}"
+                   placeholder="Amount(Stok Miktarı)">
+        </div>
+        <div class="form-group col-md-6 ">
+            <label>PPrice(Alış Fiyatı)</label>
+            <input type="number" class="form-control" name="product[pprice]" value="{{ product.pprice }}"
+                   placeholder="PPrice(Alış Fiyatı)">
+        </div>
+        <div class="form-group  col-md-6">
+            <label>SPrice(Satış Fiyatı)</label>
+            <input type="number" class="form-control" name="product[sprice]" value="{{ product.sprice }}"
+                   placeholder="SPrice(Satış Fiyatı)">
+        </div>
+        <div class="form-group col-md-6 ">
+            <label>Minamount(Uyarı Miktarı)</label>
+            <input type="number" class="form-control" name="product[minamout]" value="{{ product.minamout }}"
+                   placeholder="Minamount(Uyarı Miktarı)">
+        </div>
+        <div class="form-group col-md-6 ">
+            <label>Description(Açılama)</label>
+            <input type="text" class="form-control" name="product[description]" value="{{ product.description }}"
+                   placeholder="Description(Açılama)">
+        </div>
+        <div class="form-group col-md-6 ">
+            <label>User ID</label>
+            <input type="number" class="form-control" name="product[user_id]" value="{{ product.userid }}"
+                   placeholder="User ID">
+        </div>
+        <div class="form-group col-md-6">
+            <label> Aktif Durum(Status)</label>
+            <select name="product[status]" class="form-control">
+                <option>{{ product.status }}</option>
+                <option>True</option>
+                <option>False</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-12 ">
+            <label>Detail(Detay)</label>
+            <textarea  class="form-control" name="product[detail]" id="editor">{{ product.detail }}</textarea>
+        </div>
+
+
+        <div class="row col-md-12">
+            <div class="col-md-6 form-group">
+                <a href="{{ path('admin_product_index') }}" class="btn btn-primary btn-block"><span
+                            class="glyphicon glyphicon-arrow-left"> </span> Listeye Geri Dön</a>
+            </div>
+            <div class="col-md-6 form-group">
+                <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-check"></span>
+                    Kaydet
+                </button>
+            </div>
+        </div>
+        <input type="text" name="product[image]" value="{{ product.image }}" hidden>
+    </form>
+</div>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
