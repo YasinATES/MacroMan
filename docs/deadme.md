@@ -1,2 +1,0 @@
-# MacroMan
-**E-Commerce System**
